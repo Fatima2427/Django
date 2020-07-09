@@ -53,5 +53,3 @@ def register(request):
 def logout(request):
 	auth.logout(request)
 	return redirect('/')
-def travel(request):	
-	return render(request , "travel.html")

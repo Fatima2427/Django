@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Destination
+from .models import Destination, DestinosForm
 # Create your views here.
 def index (request):
 
@@ -7,4 +7,9 @@ def index (request):
 	
 	return render(request , "index.html", {'dests' : dests})
 
-	
+def destinosAnotherCreateView(request):
+	form=DestinosForm()
+	context={
+		'form'=form,
+	}
+	return render(request,'destinos.html',context)
