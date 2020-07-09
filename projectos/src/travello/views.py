@@ -8,7 +8,14 @@ def index (request):
 	return render(request , "index.html", {'dests' : dests})
 
 def destinosAnotherCreateView(request):
-	form=DestinosForm()
+	form=DestinosForm(request.POST)
+	if request.method == 'POST':
+		form =DestinosForm(request.POST)
+		if form.is_valid():
+			print(form.cleaned_data)
+			Destination.objects.create(**form.cleaned_data)
+		else:
+			print(form.errors)
 	context={
 		'form'=form,
 	}
