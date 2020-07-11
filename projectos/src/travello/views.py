@@ -20,3 +20,19 @@ def destinosAnotherCreateView(request):
 		'form':form,
 	}
 	return render(request, 'destinos.html', context)
+
+def travelloShowObject(request, my ID):
+	obj =get_object_or404(Destination, id=myID)
+	context ={
+		'objeto':obj
+	}
+	return render(request, 'descripcion.html', context)
+def travelloDeleteView(request, myID):
+	obj =get_object_or_404(Destination, id=myID)
+	if request.method=='POST':
+		print('lo borro')
+		obj.delete()
+	context={
+		'objeto':obj,
+	}
+	return render(request, 'travello/destinoBorrar.html', context)

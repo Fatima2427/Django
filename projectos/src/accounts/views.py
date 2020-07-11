@@ -27,9 +27,6 @@ def register(request):
 		password2=request.POST['password2']
 		email=request.POST['email']
 
-
-		
-
 		if password1==password2:
 			if User.objects.filter(username=username).exists():
 				messages.info(request, 'Username taken')

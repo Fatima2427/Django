@@ -1,0 +1,9 @@
+{% block content %}
+<form action='.' method='POST'> {% csrf_token %}
+    <h1> quiere borrar este destino:</h1>
+    <h2>{{objeto.name}}</h2>
+    <input type='submit' value='SI'/>
+    <a href ='../'>Cancelar</a>
+
+</form>
+{% endblock %}
